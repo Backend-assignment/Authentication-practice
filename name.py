@@ -32,7 +32,7 @@ class Name(Randommer):
             list: list of name suggestions
         '''
         base_url = self.base_url
-        url = f"{base_url}"
+        url = f"{base_url}/api/Name/Suggestions"
         headers = {"X-Api-Key":api_key}
         params = {"startingWords": startingWords}
         r = requests.get(url, params=params, headers=headers)
@@ -47,8 +47,12 @@ class Name(Randommer):
         Returns:
             list: list of names
         '''
+        base_url = self.base_url
+        url = f"{base_url}/api/Name/Cultures"
         headers = {"X-Api-Key":api_key}
-        r = requests.get(f'{self.get_url()}Name/Cultures', headers=headers)
+        r = requests.get(url, headers=headers)
         return r.status_code
-
+f = Name()
+key = "940a688e878544858234dee258149563"
+print(f.get_name_suggestions(key,"ilhomchik"))
 
