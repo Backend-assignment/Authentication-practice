@@ -49,7 +49,7 @@ class Finance(Randommer):
         '''
         url = f"{self.get_url()}Finance/Countries"
         headers = {
-            "X-Api-Key" :  api_key
+            "X-Api-Key": api_key
         }
         response = requests.get(url, headers=headers)
         return response.json()
